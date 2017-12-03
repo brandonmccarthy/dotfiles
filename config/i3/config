@@ -25,7 +25,12 @@ hide_edge_borders both
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Application shortcuts
+# Make the active window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Application bindings
 bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec $term -e htop
