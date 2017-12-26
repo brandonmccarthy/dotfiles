@@ -6,7 +6,7 @@ set $mod Mod1
 
 # Variables
 set $term termite
-set $web google-chrome
+set $web firefox-developer
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -35,6 +35,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec $term -e htop
 bindsym $mod+e exec $term -e ranger
+bindsym $mod+w exec $web
+bindsym $mod+n exec "/usr/bin/thunar"
 
 # panic shortcut
 bindsym $mod+p		workspace 9 ; exec $term -e htop ; exec $term -e ranger
@@ -235,9 +237,6 @@ bindsym $mod+F6 exec mocp --stop
 bindsym $mod+F7 exec mocp --previous
 bindsym $mod+F8 exec mocp --next
 
-# App shortcuts
-bindsym $mod+w exec "/usr/bin/firefox-developer"
-bindsym $mod+n exec "/usr/bin/thunar"
 
 # Redirect sound to headphones
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
