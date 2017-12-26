@@ -4,54 +4,51 @@
 # Mod1 = alt; Mod4 = meta
 set $mod Mod1
 
-# Variables
-set $term termite
-set $web firefox-developer-edition
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 9
 
-# thin borders
-hide_edge_borders both
+#####################################################################
+# Variables
+#####################################################################
+set $term termite
+set $web firefox-developer-edition
+set $explorer thunar
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# Make the active window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-# show the first scratchpad window
-bindsym $mod+minus scratchpad show
-
-# Application bindings
+#####################################################################
+# Application Bindings
+#####################################################################
 bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec $term -e htop
-bindsym $mod+e exec $term -e ranger
+bindsym $mod+e exec $explorer
 bindsym $mod+w exec $web
-bindsym $mod+n exec "/usr/bin/thunar"
 
-# panic shortcut
+# Panic shortcut
 bindsym $mod+p		workspace 9 ; exec $term -e htop ; exec $term -e ranger
 
-# kill focused window
+#####################################################################
+# Scratchpad
+#####################################################################
+# Make the active window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Kill focused window
 bindsym $mod+Shift+q kill
 
+#####################################################################
+# Window management and movement
+#####################################################################
 
-# change focus
+# Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
+# Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -91,14 +88,41 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
 # focus the child container
 #bindsym $mod+d focus child
 
-# Switch to next and previous workspace
-bindsym $mod+Shift+p workspace prev
-bindsym $mod+Shift+n workspace next
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
-# switch to workspace
+        # Same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # Back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# floating windows
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Kalu"] floating enable
+
+#####################################################################
+# Workspaces
+#####################################################################
+# Workspace switching
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -110,7 +134,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-# move focused container to workspace
+# Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -122,31 +146,31 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# Toggle borders for every window 
-bindsym $mod+Shift+b [class="^.*"] border toggle
+# Switch to next and previous workspace
+bindsym $mod+Shift+p workspace prev
+bindsym $mod+Shift+n workspace next
 
 # Remove borders
 for_window [class="^.*"] border pixel 2
 
+# Toggle borders for every window 
+bindsym $mod+Shift+b [class="^.*"] border toggle
+
 # Program workspace assignments
-# assign [class="Termite"] 1
 assign [class="Google-chrome"] 2
 assign [class="firefox"] 3
 assign [class="Firefox Developer Edition"] 3
 
-# Make the following windows floating by default
-for_window [class="keepassxc"] floating enable
-for_window [class="Syncthing GTK"] floating enable
-
-
-# reload the configuration file
+#####################################################################
+# i3 System
+#####################################################################
+# Reload the configuration file
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-
-# System stuff
+# System state dialogue bar
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock-fancy, mode "default"
@@ -162,35 +186,12 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 
-# lock
+# Lock shortcut
 bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/lock.sh
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
+#####################################################################
+# i3 Colors
+#####################################################################
 set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -198,7 +199,7 @@ set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
 set $indicator-color     #a0a0a0
 
-# set window colors
+# Window colors
 #                       border             background         text                 indicator
 client.focused          $bg-color          $bg-color          $text-color          $indicator-color
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
@@ -206,30 +207,30 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
 
 
-# floating windows
-for_window [class="Pavucontrol"] floating enable
-for_window [class="Kalu"] floating enable
-
 # Gaps
 gaps inner 5
 gaps outer 5
+
+# thin borders
+hide_edge_borders both
 
 # bindsym $mod+s			gaps inner current plus 5
 # bindsym $mod+Shift+s		gaps inner current minus 5
 # bindsym $mod+z			gaps outer current plus 5
 # bindsym $mod+Shift+z		gaps outer current minus 5
 
-# Multimedia Keys
-
-# volume
+#####################################################################
+# Multimedia
+#####################################################################
+# Volume
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 
-# granular volume control
+# Granular volume control
 bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
 bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
 
-# mute
+# Mute
 bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
 
 bindsym $mod+F5 exec mocp --toggle-pause
@@ -241,7 +242,9 @@ bindsym $mod+F8 exec mocp --next
 # Redirect sound to headphones
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
-# Autostart apps
+#####################################################################
+# Autostart applications
+#####################################################################
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id "compton -cC"
 exec --no-startup-id nm-applet
