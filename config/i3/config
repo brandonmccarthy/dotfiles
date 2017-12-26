@@ -73,12 +73,12 @@ bindsym $mod+c split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-# bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+Shift+s layout stacking
-# bindsym $mod+Shift+w layout tabbed
-# bindsym $mod+Shift+e layout toggle split
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -212,10 +212,10 @@ for_window [class="Kalu"] floating enable
 gaps inner 5
 gaps outer 5
 
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+Shift+s		gaps inner current minus 5
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps outer current minus 5
+# bindsym $mod+s			gaps inner current plus 5
+# bindsym $mod+Shift+s		gaps inner current minus 5
+# bindsym $mod+z			gaps outer current plus 5
+# bindsym $mod+Shift+z		gaps outer current minus 5
 
 # Multimedia Keys
 
