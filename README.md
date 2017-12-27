@@ -4,7 +4,8 @@ Dotfiles for my linux workstation(s). Use the following setup and applications:
 
 + i3-gaps
 + polybar
-+ termite
++ betterlockscreen
++ urxvt (with pixbuf support)
 + tmux
 + neo-vim
 + firefox
