@@ -13,7 +13,6 @@ font pango:monospace 9
 #####################################################################
 set $term urxvt
 set $web firefox-developer-edition
-set $explorer thunar
 set $lock "betterlockscreen -l dimblur"
 #####################################################################
 # Application Bindings
@@ -21,7 +20,7 @@ set $lock "betterlockscreen -l dimblur"
 bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+i exec $term -e htop
-bindsym $mod+e exec $explorer
+bindsym $mod+e exec $term -e ranger
 bindsym $mod+w exec $web
 
 # Panic shortcut
