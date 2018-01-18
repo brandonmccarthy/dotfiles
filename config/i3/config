@@ -19,10 +19,11 @@ set $lock "betterlockscreen -l dimblur"
 # Application Bindings
 #####################################################################
 bindsym $mod+Return exec $term
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+s exec --no-startup-id rofi -show ssh
+bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+i exec $term -e htop
 bindsym $mod+e exec $term -e ranger
-bindsym $mod+w exec $web
 
 # Panic shortcut
 bindsym $mod+p		workspace 9 ; exec $term -e htop ; exec $term -e ranger
