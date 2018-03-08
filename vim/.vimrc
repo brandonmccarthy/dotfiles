@@ -6,28 +6,32 @@ let mapleader='`'
 filetype plugin on
 syntax enable
 
-" Plugins
-call plug#begin()
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+Plug 'crusoexia/vim-monokai'
 Plug 'tpope/vim-fugitive'
 Plug 'benmills/vimux'
-Plug 'sickill/vim-monokai'
-Plug 'hzchirs/vim-material'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
 Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdcommenter'
+
+" Initialize plugin system
 call plug#end()
 
-" Highlighting
-let g:go_highlight_functions = 1  
-let g:go_highlight_methods = 1  
-let g:go_highlight_structs = 1  
-let g:go_highlight_operators = 1  
-let g:go_highlight_build_constraints = 1  
-
-" Theme
-set background=dark
+" Theming stuff
+syntax on
 colorscheme monokai
+
+" Highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " Vimux stuff
 " Prompt for a command to run
