@@ -7,11 +7,12 @@
 
 alias ls='ls --color=auto'
 alias ll='ls -lha --color=auto'
+alias tmx2='tmux'
+alias tlpmode='sudo tlp-stat | grep "+++ TLP Status" -A 4'
+
 PS1='[\u@\h \W]\$ '
 BROWSER=/usr/bin/chromium
 EDITOR=/usr/bin/vim
-
-alias tlpmode='sudo tlp-stat | grep "+++ TLP Status" -A 4'
 
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
