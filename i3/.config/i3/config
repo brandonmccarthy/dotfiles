@@ -37,8 +37,12 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Google Hangouts Chrome App
-bindsym $mod+Shift+m [con_mark="hangouts"] scratchpad show
+bindsym $mod+Shift+i [con_mark="hangouts"] scratchpad show
 for_window [title="^Google Hangouts -"] mark hangouts, move scratchpad
+
+# Google Hangouts Chrome App
+bindsym $mod+Shift+u [con_mark="chat"] scratchpad show
+for_window [instance="chat"] mark chat, move scratchpad
 
 # Scratchpad terminal
 bindsym $mod+grave [con_mark="scratchterm"] scratchpad show
