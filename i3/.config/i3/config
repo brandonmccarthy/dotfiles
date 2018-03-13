@@ -21,7 +21,6 @@ set $lock "betterlockscreen -l dimblur"
 bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+w exec --no-startup-id rofi -show window
-bindsym $mod+i exec $term -e htop
 bindsym $mod+e exec $term -e ranger
 
 # Panic shortcut
@@ -37,11 +36,11 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Google Hangouts Chrome App
-bindsym $mod+Shift+i [con_mark="hangouts"] scratchpad show
+bindsym $mod+i [con_mark="hangouts"] scratchpad show
 for_window [title="^Google Hangouts -"] mark hangouts, move scratchpad
 
 # Google Hangouts Chrome App
-bindsym $mod+Shift+u [con_mark="chat"] scratchpad show
+bindsym $mod+u [con_mark="chat"] scratchpad show
 for_window [instance="chat"] mark chat, move scratchpad
 
 # Scratchpad terminal
