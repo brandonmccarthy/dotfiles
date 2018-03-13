@@ -20,7 +20,6 @@ set $lock "betterlockscreen -l dimblur"
 #####################################################################
 bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+s exec --no-startup-id rofi -show ssh
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+i exec $term -e htop
 bindsym $mod+e exec $term -e ranger
@@ -33,11 +32,17 @@ bindsym $mod+p		workspace 9 ; exec $term -e htop ; exec $term -e ranger
 #####################################################################
 # Make the active window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
+
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# Kill focused window
-bindsym $mod+Shift+q kill
+# Google Hangouts Chrome App
+bindsym $mod+Shift+m [con_mark="hangouts"] scratchpad show
+for_window [title="^Google Hangouts -"] mark hangouts, move scratchpad
+
+# Scratchpad terminal
+bindsym $mod+grave [con_mark="scratchterm"] scratchpad show
+for_window [instance="scratchterm"] mark scratchterm, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
 
 #####################################################################
 # Window management and movement
@@ -116,6 +121,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Kill focused window
+bindsym $mod+Shift+q kill
+
 # floating windows
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
@@ -177,11 +185,6 @@ for_window [class="^.*"] border pixel 2
 # Toggle borders for every window 
 bindsym $mod+Shift+b [class="^.*"] border toggle
 
-# Program workspace assignments
-assign [class="Google-chrome"] 2
-assign [class="firefox"] 3
-assign [class="Firefox Developer Edition"] 3
-
 #####################################################################
 # i3 System
 #####################################################################
@@ -237,11 +240,6 @@ smart_gaps on
 # thin borders
 hide_edge_borders both
 
-# bindsym $mod+s			gaps inner current plus 5
-# bindsym $mod+Shift+s		gaps inner current minus 5
-# bindsym $mod+z			gaps outer current plus 5
-# bindsym $mod+Shift+z		gaps outer current minus 5
-
 #####################################################################
 # Multimedia
 #####################################################################
@@ -264,15 +262,14 @@ bindsym $mod+F8 exec mocp --next
 #####################################################################
 # Autostart applications
 #####################################################################
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id clipit
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
 exec --no-startup-id xautolock -time 10 -locker $lock
-exec_always --no-startup-id ff-theme-util
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id urxvt -name scratchterm
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
