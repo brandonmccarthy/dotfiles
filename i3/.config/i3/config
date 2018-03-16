@@ -200,6 +200,9 @@ for_window [class="^.*"] border pixel 2
 # Toggle borders for every window 
 bindsym $mod+Shift+b [class="^.*"] border toggle
 
+# Workspace assignments
+assign [class="Google-chrome"] $WS2
+
 #####################################################################
 # i3 System
 #####################################################################
