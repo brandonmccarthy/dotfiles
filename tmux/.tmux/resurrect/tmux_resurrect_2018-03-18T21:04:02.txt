@@ -1,5 +1,0 @@
-pane	0	1	:bash	1	:*	1	:/home/brandon	1	bash	:
-pane	11	1	:bash	1	:*	1	:/home/brandon/dotfiles	1	bash	:
-window	0	1	1	:*	c63e,151x37,0,0,1
-window	11	1	1	:*	6352,151x37,0,0,13
-state	11	

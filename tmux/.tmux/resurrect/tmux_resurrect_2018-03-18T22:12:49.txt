@@ -1,5 +1,0 @@
-pane	0	1	:vim	1	:*	1	:/home/brandon	1	vim	:vim /home/brandon/.Xresources
-pane	0	2	:bash	0	:-	1	:/tmp/yaourt-tmp-brandon/aur-nerd-fonts-complete (deleted)	1	bash	:
-window	0	1	1	:*	c63d,151x37,0,0,0
-window	0	2	0	:-	c63e,151x37,0,0,1
-state	0	
