@@ -14,7 +14,7 @@ syncthing-gtk, keepassxc, google-chrome, firefox, urxvt, backintime, timeshift, 
 tmux, vim, ranger
 
 ### Usage
-`git clone git@github.com:brandonmccarthy/dotfiles.git ~/.dotfiles`
+`git clone --recurse-submodules -j8 https://github.com/brandonmccarthy/dotfiles.git ~/.dotfiles`
 
 Use `stow` to install configuration files for wanted applications like `stow ~/.dotfiles/tmux`
 
