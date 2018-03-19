@@ -257,12 +257,12 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -302,7 +302,7 @@ format-full-underline = ${self.format-charging-underline}
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
-label-full = 100%
+label-full = charged
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
