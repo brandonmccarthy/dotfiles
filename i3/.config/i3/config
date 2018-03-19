@@ -87,6 +87,18 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Move workspace between monitors
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+l move workspace to output right
+
+# Move workspace between monitors, using arrow keys
+bindsym $mod+Control+Left  workspace to output left
+bindsym $mod+Control+Down  workspace to output down
+bindsym $mod+Control+Up  workspace to output up
+bindsym $mod+Control+Right  workspace to output right
+
 # split in vertical orientation
 bindsym $mod+c split v
 # split in horizontal orientation
