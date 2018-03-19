@@ -11,7 +11,7 @@ font pango:monospace 9
 #####################################################################
 # Variables
 #####################################################################
-set $term urxvt
+set $term termite
 set $web firefox-developer-edition
 set $lock "betterlockscreen -l dimblur"
 
