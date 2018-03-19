@@ -3,24 +3,22 @@
 	font: "ProggyCleanTTSZ 12";
 
 	/* color variables */
-	border: #cccccc;
-	background: #222;
-	background-highlight: #3c3c3c;
-	foreground: #ffffff;
-	foreground-urgent: #cc6666;
-	foreground-active: #81a2be;
-	foreground-inactive: #777777;
-
-	highlight: underline #ffffff;
-
-	background-color: @background;
-	text-color: @foreground;
+	border:                #cccccc;
+	background:            #222;
+	background-highlight:  #3c3c3c;
+	foreground:            #ffffff;
+	foreground-urgent:     #cc6666;
+	foreground-active:     #81a2be;
+	foreground-inactive:   #777777;
+	highlight:             underline #ffffff;
+	background-color:      @background;
+	text-color:            @foreground;
 }
 
 window {
-	padding: 8;
-	border: 1px solid;
-	border-color: @border;
+	padding:       8;
+	border:        1px solid;
+	border-color:  @border;
 }
 
 mainbox {
@@ -30,15 +28,15 @@ textbox {
 }
 
 listview {
-	border: 5px solid 0px 0px;
-	border-color: @background;
-	scrollbar: true;
-	/*dynamic: true;*/
+	border:        5px solid 0px 0px;
+	border-color:  @background;
+	scrollbar:     true;
+	/*dynamic:     true;*/
 }
 
 element {
-	text-color: @foreground-inactive;
-	padding: 2px;
+	text-color:  @foreground-inactive;
+	padding:     2px;
 }
 
 element.urgent {
@@ -50,8 +48,8 @@ element.active {
 }
 
 element.selected.normal {
-	text-color: @foreground;
-	background-color: @background-highlight;
+	text-color:        @foreground;
+	background-color:  @background-highlight;
 }
 
 case-indicator {

@@ -4,15 +4,15 @@ URxvt.boldFont:    xft:Source Code Pro for Powerline:bold:size=11
 URxvt.scrollBar:   false
 
 ! Clickable links and clipboard
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard
-URxvt.url-launcher:    /usr/bin/xdg-open
-URxvt.matcher.button:  1
+URxvt.perl-ext-common:  default,matcher,selection-to-clipboard
+URxvt.url-launcher:     /usr/bin/xdg-open
+URxvt.matcher.button:   1
 
 ! Custom copy and paste
-URxvt.iso14755: true
-URxvt.iso14755_52: false
-URxvt.keysym.Shift-Control-V: eval:paste_keyboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_keyboard
+URxvt.iso14755:                true
+URxvt.iso14755_52:             false
+URxvt.keysym.Shift-Control-V:  eval:  paste_keyboard
+URxvt.keysym.Shift-Control-C:  eval:  selection_to_keyboard
 
 ! colors only below
 ! special
@@ -51,14 +51,3 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_keyboard
 ! white
 *.color7:       #c5c8c6
 *.color15:      #ffffff
-
-! rofi stuff
-rofi.terminal: urxvt
-rofi.ssh-set-title: true
-rofi.disable-history: true
-rofi.sidebar-mode: true
-rofi.font: Anonymous Pro, Regular, 12
-! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
-rofi.color-normal: #1d1f21,  #969896,  #353944,  #3971ed,  #FFFFFF
-!                  'background', 'border'
-rofi.color-window: #1d1f21, #404552

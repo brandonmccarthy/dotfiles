@@ -2,7 +2,7 @@
 set number
 set relativenumber
 set nowrap
-let mapleader='`'
+let mapleader=','
 filetype plugin on
 syntax enable
 
@@ -13,6 +13,7 @@ syntax enable
 call plug#begin('~/.vim/plugged')
 Plug 'crusoexia/vim-monokai'
 Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
 Plug 'benmills/vimux'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
@@ -38,3 +39,9 @@ let g:go_highlight_build_constraints = 1
 map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
+
+" Tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
