@@ -4,7 +4,7 @@ vpnconnected=$(nmcli -c no -f NAME,TYPE connection show --active | grep vpn | wc
 vpnname=$(nmcli -c no -f NAME,TYPE connection show --active | grep vpn | sed 's/  vpn//')
 
 if [ "$vpnconnected" -eq "1" ]; then
-	echo "$vpnname"
+	echo " $vpnname"
 else
 	echo
 fi

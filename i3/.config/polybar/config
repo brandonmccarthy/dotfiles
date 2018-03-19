@@ -50,7 +50,7 @@ font-2 = Siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = 
-modules-right = volume vpn wlan eth battery temperature date
+modules-right = volume vpn sshagent wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 3
@@ -375,5 +375,11 @@ margin-bottom = 5
 [module/vpn]
 type = custom/script
 exec = ~/.config/polybar/scripts/vpn.sh
+interval = 5
+format-underline = ${colors.secondary}
+
+[module/sshagent]
+type = custom/script
+exec = ~/.config/polybar/scripts/sshagent.sh
 interval = 5
 format-underline = ${colors.secondary}
