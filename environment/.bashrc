@@ -16,3 +16,4 @@ EDITOR=/usr/bin/vim
 
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin
+export TERM="xterm-256color"
