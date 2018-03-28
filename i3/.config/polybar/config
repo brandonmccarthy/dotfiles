@@ -41,7 +41,7 @@ font-1              = DejaVuSans:fontformat=truetype:size=8:antialias=false;0
 font-2              = Siji:pixelsize=10;1
 modules-left        = i3
 modules-center      =
-modules-right       = volume temperature wlan eth battery date
+modules-right       = volume xbacklight filesystem xkeyboard cpu memory temperature wlan eth battery date
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = false
@@ -311,15 +311,3 @@ screenchange-reload     = true
 [global/wm]
 margin-top    = 5
 margin-bottom = 5
-
-[module/vpn]
-type             = custom/script
-exec             = ~/.config/polybar/scripts/vpn.sh
-interval         = 5
-format-underline = ${colors.secondary}
-
-[module/sshagent]
-type             = custom/script
-exec             = ~/.config/polybar/scripts/sshagent.sh
-interval         = 5
-format-underline = ${colors.secondary}
