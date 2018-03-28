@@ -2,7 +2,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 # Mod1 = alt; Mod4 = meta
-set $mod Mod1
+set $mod  Mod1
+set $mod2 mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -34,6 +35,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+e exec $term -e ranger
+bindsym $mod+m exec $term -e alsamixer
 
 # Panic shortcut
 bindsym $mod+p		workspace $WS9 ; exec $term -e htop ; exec $term -e ranger
@@ -57,7 +59,7 @@ for_window [instance="chat"] mark chat, move scratchpad
 
 # Scratchpad terminal
 bindsym $mod+grave [con_mark="scratchterm"] scratchpad show
-for_window [instance="scratchterm"] mark scratchterm, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
+for_window [title="scratchterm"] mark scratchterm, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
 
 #####################################################################
 # Window management and movement
@@ -227,13 +229,13 @@ bindsym $mod+Shift+r restart
 # System state dialogue bar
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id ~/dotfiles/scripts/i3exit.sh lock, mode "default"
+    bindsym s exec --no-startup-id ~/dotfiles/scripts/i3exit.sh suspend, mode "default"
+    bindsym u exec --no-startup-id ~/dotfiles/scripts/i3exit.sh switch_user, mode "default"
+    bindsym e exec --no-startup-id ~/dotfiles/scripts/i3exit.sh logout, mode "default"
+    bindsym h exec --no-startup-id ~/dotfiles/scripts/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/dotfiles/scripts/i3exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/dotfiles/scripts/i3exit.sh shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -242,6 +244,7 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # Lock shortcut
+bindsym $mod2+l exec --no-startup-id $lock
 bindsym $mod+Shift+x exec --no-startup-id $lock
 
 #####################################################################
@@ -301,5 +304,5 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id urxvt -name scratchterm
+exec_always --no-startup-id $term --title scratchterm
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
