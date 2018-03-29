@@ -306,3 +306,4 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id $term --title scratchterm
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id killall -rq redshift; redshift -v &> ~/.redshift.log

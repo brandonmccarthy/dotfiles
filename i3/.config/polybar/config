@@ -41,7 +41,7 @@ font-1              = DejaVuSans:fontformat=truetype:size=8:antialias=false;0
 font-2              = Siji:pixelsize=10;1
 modules-left        = i3
 modules-center      =
-modules-right       = volume xbacklight filesystem xkeyboard cpu memory temperature wlan eth battery date
+modules-right       = volume xbacklight redshift filesystem xkeyboard cpu memory temperature wlan eth battery date
 tray-position       = right
 tray-padding        = 3
 tray-transparent    = false
@@ -67,6 +67,12 @@ label-indicator-padding    = 2
 label-indicator-margin     = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline  = ${colors.secondary}
+
+[module/redshift]
+type = custom/script
+interval = 1
+format-prefix = " "
+exec = ~/.config/polybar/scripts/redshift.sh
 
 [module/filesystem]
 type                       = internal/fs
@@ -133,7 +139,7 @@ label-song-ellipsis = true
 [module/xbacklight]
 type                     = internal/xbacklight
 format                   = <label> <bar>
-label                    = BL
+label                    = 
 bar-width                = 10
 bar-indicator            = |
 bar-indicator-foreground = #ff
