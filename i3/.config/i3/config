@@ -277,12 +277,12 @@ hide_edge_borders both
 # Multimedia
 #####################################################################
 # Volume
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -D default sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -D default sset Master 5%-
 
 # Granular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+
-bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%-
+bindsym $mod+XF86AudioRaiseVolume exec amixer -D default sset Master 1%+
+bindsym $mod+XF86AudioLowerVolume exec amixer -D default sset Master 1%-
 
 # Mute
 bindsym XF86AudioMute exec amixer sset Master toggle
