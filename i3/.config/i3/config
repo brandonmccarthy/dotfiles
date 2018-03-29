@@ -32,7 +32,7 @@ set $WS10 10
 # Application Bindings
 #####################################################################
 bindsym $mod+Return exec $term
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+e exec $term -e ranger
 bindsym $mod+m exec $term -e alsamixer

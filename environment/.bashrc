@@ -15,5 +15,6 @@ BROWSER=/usr/bin/chromium
 EDITOR=/usr/bin/vim
 
 export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$(go env GOPATH)/bin # gobin
+export PATH=$PATH:/var/lib/snapd/snap/bin # snapd
 export TERM="xterm-256color"
