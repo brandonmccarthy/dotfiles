@@ -20,12 +20,22 @@ antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-
 antigen apply
 
 BULLETTRAIN_PROMPT_ORDER=(
-	time
-	dir
-	git
-	go
-	virtualenv
-	status
+    time
+    status
+    custom
+    dir
+    screen
+    perl
+    ruby
+    virtualenv
+    nvm
+    aws
+    go
+    rust
+    elixir
+    git
+    hg
+    cmd_exec_time
 )
 
 # Paths
