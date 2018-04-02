@@ -28,6 +28,16 @@ set $WS8 8
 set $WS9 9
 set $WS10 10
 
+# Audio Alsa
+set $audiobiginc --no-startup-id amixer -D default sset Master 5%+
+set $audioinc --no-startup-id amixer -D default sset Master 1%+
+set $audiobigdec --no-startup-id amixer -D default sset Master 5%-
+set $audiodec --no-startup-id amixer -D default sset Master 1%-
+set $audiotoggle --no-startup-id amixer sset Master toggle
+set $audiomute --no-startup-id amixer sset Master mute
+set $micmute --no-startup-id amixer sset Capture nocap
+set $mictoggle --no-startup-id amixer sset Capture toggle
+
 #####################################################################
 # Application Bindings
 #####################################################################
@@ -38,7 +48,7 @@ bindsym $mod+e exec $term -e ranger
 bindsym $mod+m exec $term -e alsamixer
 
 # Panic shortcut
-bindsym $mod+p		workspace $WS9 ; exec $term -e htop ; exec $term -e ranger
+bindsym $mod+p		workspace panic; exec $audiomute; exec $micmute; exec $term -e htop ; exec $term -e ranger
 
 #####################################################################
 # Scratchpad
@@ -61,6 +71,9 @@ for_window [instance="chat"] mark chat, move scratchpad
 bindsym $mod+grave [con_mark="scratchterm"] scratchpad show
 for_window [title="scratchterm"] mark scratchterm, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
 
+bindsym $mod+a [con_mark="math"] scratchpad show
+for_window [title="math"] mark math, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
+ 
 #####################################################################
 # Window management and movement
 #####################################################################
@@ -119,9 +132,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -277,15 +287,16 @@ hide_edge_borders both
 # Multimedia
 #####################################################################
 # Volume
-bindsym XF86AudioRaiseVolume exec amixer -D default sset Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -D default sset Master 5%-
+bindsym XF86AudioRaiseVolume exec $audiobiginc
+bindsym XF86AudioLowerVolume exec $audiobigdec
 
 # Granular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer -D default sset Master 1%+
-bindsym $mod+XF86AudioLowerVolume exec amixer -D default sset Master 1%-
+bindsym $mod+XF86AudioRaiseVolume exec $audioinc
+bindsym $mod+XF86AudioLowerVolume exec $audiodec
 
 # Mute
-bindsym XF86AudioMute exec amixer sset Master toggle
+bindsym XF86AudioMute exec $audiotoggle
+bindsym XF86AudioMicMute exec $mictoggle
 
 bindsym $mod+F5 exec mocp --toggle-pause
 bindsym $mod+F6 exec mocp --stop
@@ -305,5 +316,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id $term --title scratchterm
+exec_always --no-startup-id $term --title math -e ipython
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id killall -rq redshift; redshift -v &> ~/.redshift.log
