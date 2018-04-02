@@ -19,6 +19,7 @@ antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-
 # Tell Antigen that you're done.
 antigen apply
 
+# Bullettrain theme stuff
 BULLETTRAIN_PROMPT_ORDER=(
     time
     status
@@ -37,6 +38,7 @@ BULLETTRAIN_PROMPT_ORDER=(
     hg
     cmd_exec_time
 )
+# BULLETTRAIN_TIME_12HR=true
 
 # Paths
 export GOPATH=$(go env GOPATH)
