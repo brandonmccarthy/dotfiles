@@ -11,8 +11,8 @@ colorIT    =
 colorUL    =
 
 # Black
-color0     = #000000
-color8     = #000000
+color0     = #2d2d2d
+color8     = #2d2d2d
 
 # Red
 color1     = #f2777a
