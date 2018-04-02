@@ -4,7 +4,7 @@
 
 	/* color variables */
 	border:                #cccccc;
-	background:            #222;
+	background:            #2d2d2d;
 	background-highlight:  #3c3c3c;
 	foreground:            #ffffff;
 	foreground-urgent:     #cc6666;
@@ -62,5 +62,5 @@ scrollbar {
 }
 
 configuration {
-	display-drun: "Start: ";
+	display-drun: "Launch: ";
 }

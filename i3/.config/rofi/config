@@ -1,6 +1,6 @@
 ! set the theme
 rofi.theme:          gray
-rofi.terminal:       urxvt
+rofi.terminal:       termite
 rofi.ssh-set-title:  true
 rofi.sidebar-mode:   true
 rofi.font:           Anonymous Pro, Regular, 12
