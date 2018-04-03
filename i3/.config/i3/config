@@ -46,7 +46,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+e exec $term -e ranger
 bindsym $mod+m exec $term -e alsamixer
-bindsym $mod+Shift+w exec $term -e ~/dotfiles/scripts/i3-get-window-criteria.sh --title=wininfo
+bindsym $mod2+w exec $term -e ~/dotfiles/scripts/i3-get-window-criteria.sh --title=wininfo
 
 # Panic shortcut
 bindsym $mod+p		workspace panic; exec $audiomute; exec $micmute; exec $term -e htop ; exec $term -e ranger
@@ -62,11 +62,11 @@ bindsym $mod+minus scratchpad show
 
 # Google Hangouts Chrome App
 bindsym $mod+i [con_mark="hangouts"] scratchpad show
-for_window [title="^Google Hangouts -"] mark hangouts, move scratchpad
+for_window [title="^Google Hangouts -" window_role="app"] mark hangouts, move scratchpad
 
 # Google Hangouts Chrome App
 bindsym $mod+u [con_mark="chat"] scratchpad show
-for_window [instance="chat"] mark chat, move scratchpad
+for_window [instance="^chat$"] mark chat, move scratchpad
 
 # Scratchpad terminal
 bindsym $mod+grave [con_mark="scratchterm"] scratchpad show
