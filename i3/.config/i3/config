@@ -46,6 +46,7 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+e exec $term -e ranger
 bindsym $mod+m exec $term -e alsamixer
+bindsym $mod+Shift+w exec $term -e ~/dotfiles/scripts/i3-get-window-criteria.sh --title=wininfo
 
 # Panic shortcut
 bindsym $mod+p		workspace panic; exec $audiomute; exec $micmute; exec $term -e htop ; exec $term -e ranger
@@ -72,7 +73,7 @@ bindsym $mod+grave [con_mark="scratchterm"] scratchpad show
 for_window [title="scratchterm"] mark scratchterm, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
 
 bindsym $mod+a [con_mark="math"] scratchpad show
-for_window [title="math"] mark math, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
+for_window [title="^math$"] mark math, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
  
 #####################################################################
 # Window management and movement
@@ -166,6 +167,7 @@ bindsym $mod+Shift+q kill
 # floating windows
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
+for_window [title="^wininfo$"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
