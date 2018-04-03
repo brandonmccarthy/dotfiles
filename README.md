@@ -21,5 +21,5 @@ Dotfiles for my linux workstation(s).
 * Run `~/dotfiles/scripts/check_applications.sh` to ensure all required programs are in `$PATH` and executable.
 * Use `stow` to install configuration files for wanted applications like `stow ~/dotfiles/tmux`
 
-![Clean Desktop](screenshots/clean.png)
 ![Busy Desktop](screenshots/busy.png)
+![Clean Desktop](screenshots/clean.png)
