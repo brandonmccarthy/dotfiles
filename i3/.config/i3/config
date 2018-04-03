@@ -300,6 +300,11 @@ bindsym $mod+XF86AudioLowerVolume exec $audiodec
 bindsym XF86AudioMute exec $audiotoggle
 bindsym XF86AudioMicMute exec $mictoggle
 
+# Brightness controls
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# media keys
 bindsym $mod+F5 exec mocp --toggle-pause
 bindsym $mod+F6 exec mocp --stop
 bindsym $mod+F7 exec mocp --previous
