@@ -19,14 +19,14 @@ set $lock "betterlockscreen -l dimblur"
 # Name workspaces
 set $WS1 "1: Term"
 set $WS2 "2: Web"
-set $WS3 3
-set $WS4 4
-set $WS5 5
-set $WS6 6
-set $WS7 7
-set $WS8 8
-set $WS9 9
-set $WS10 10
+set $WS3 "3"
+set $WS4 "4"
+set $WS5 "5"
+set $WS6 "6"
+set $WS7 "7"
+set $WS8 "8"
+set $WS9 "9"
+set $WS10 "10"
 
 # Audio Alsa
 set $audiobiginc --no-startup-id amixer -D default sset Master 5%+
@@ -63,6 +63,7 @@ bindsym $mod+minus scratchpad show
 # Google Hangouts Chrome App
 bindsym $mod+i [con_mark="hangouts"] scratchpad show
 for_window [title="^Google Hangouts -" window_role="app"] mark hangouts, move scratchpad
+for_window [title="^Google Hangouts -" window_role="pop-up"] mark hangouts, move scratchpad
 
 # Google Hangouts Chrome App
 bindsym $mod+u [con_mark="chat"] scratchpad show
