@@ -326,4 +326,4 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id $term --title scratchterm
 exec_always --no-startup-id $term --title math -e ipython
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id killall -rq redshift; redshift -v &> ~/.redshift.log
+exec_always --no-startup-id killall -rq redshift; redshift -v -l 47.6697163:-122.1999892 &> ~/.redshift.log
