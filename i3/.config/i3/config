@@ -254,11 +254,7 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Pause mode "$mode_system"
-
-# Lock shortcut
-bindsym $mod2+l exec --no-startup-id $lock
-bindsym $mod+Shift+x exec --no-startup-id $lock
+bindsym $mod+Shift+x mode "$mode_system"
 
 #####################################################################
 # i3 Colors
