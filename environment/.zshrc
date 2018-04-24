@@ -40,6 +40,11 @@ BULLETTRAIN_PROMPT_ORDER=(
 )
 # BULLETTRAIN_TIME_12HR=true
 
+# History options
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+unsetopt HIST_VERIFY
+
 # Paths
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin # gobin
