@@ -1,6 +1,10 @@
 #!/bin/sh
 # /usr/bin/i3exit
 
+lock() {
+	betterlockscreen -l dimblur
+}
+
 # with openrc use loginctl
 [[ $(cat /proc/1/comm) == "systemd" ]] && logind=systemctl || logind=loginctl
 
@@ -15,10 +19,10 @@ case "$1" in
     	dm-tool switch-to-greeter
     	;;
     suspend)
-	betterlockscreen -l dimblur && $logind suspend
+	lock && $logind suspend
         ;;
     hibernate)
-    	betterlockscreen -l dimblur && $logind hibernate
+    	lock && $logind hibernate
         ;;
     reboot)
         $logind reboot
