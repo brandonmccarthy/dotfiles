@@ -12,18 +12,18 @@ colorUL    =
 
 # Black
 color0     = #2d2d2d
-color8     = #2d2d2d
+color8     = #666666
 
 # Red
 color1     = #f2777a
-color9     = #f2777a
+color9     = #ff3334
 
 # Green
 color2     = #99cc99
-color10    = #99cc99
+color10    = #9ec400
 
 # yellow
-color3     = #ffcc66
+color3     = #f99157
 color11    = #ffcc66
 
 # blue
@@ -32,7 +32,7 @@ color12    = #6699cc
 
 # magenta
 color5     = #cc99cc
-color13    = #cc99cc
+color13    = #ffcc66
 
 # cyan
 color6     = #66cccc
@@ -40,4 +40,4 @@ color14    = #66cccc
 
 # white
 color7     = #ffffff
-color15    = #ffffff
+color15    = #393939
