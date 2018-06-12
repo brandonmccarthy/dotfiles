@@ -14,11 +14,11 @@ font pango:monospace 9
 #####################################################################
 set $term termite
 set $web firefox-developer-edition
-set $lock "killall -SIGUSR1 dunst; betterlockscreen -l dimblur; killall -SIGUSR2 dunst"
+set $lock "killall -SIGUSR1 dunst; betterlockscreen -l dimblur || i3lock -c 000000; killall -SIGUSR2 dunst"
 
 # Name workspaces
-set $WS1 "1: Term"
-set $WS2 "2: Web"
+set $WS1 "1"
+set $WS2 "2"
 set $WS3 "3"
 set $WS4 "4"
 set $WS5 "5"
@@ -49,7 +49,7 @@ bindsym $mod+m exec $term -e alsamixer
 bindsym $mod2+w exec $term -e ~/dotfiles/scripts/i3-get-window-criteria.sh --title=wininfo
 
 # Panic shortcut
-bindsym $mod+p		workspace panic; exec $audiomute; exec $micmute; exec $term -e htop ; exec $term -e ranger
+# bindsym $mod+p		workspace panic; exec $audiomute; exec $micmute; exec $term -e htop ; exec $term -e ranger
 
 #####################################################################
 # Scratchpad
@@ -76,6 +76,8 @@ for_window [title="scratchterm"] mark scratchterm, resize grow height 200px, res
 bindsym $mod+a [con_mark="math"] scratchpad show
 for_window [title="^math$"] mark math, resize grow height 200px, resize grow width 300px, move position 170px 50px, move scratchpad
  
+bindsym $mod+Shift+m mark pip, move scratchpad 
+bindsym $mod+p [con_mark="pip"] scratchpad show, resize set 412 px 233 px
 #####################################################################
 # Window management and movement
 #####################################################################
@@ -279,6 +281,8 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 gaps inner 10
 gaps outer -4
 smart_gaps on
+bindsym $mod+g gaps inner all plus 5
+bindsym $mod+Shift+g gaps inner all minus 5
 
 # thin borders
 hide_edge_borders both
@@ -315,12 +319,13 @@ exec --no-startup-id clipit
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker $lock
-exec --no-startup-id nitrogen --restore; sleep 1; compton --config ~/.config/compton.conf -b
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id $term --title scratchterm
+exec --no-startup-id $term --title math -e ipython
 
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id killall compton; compton --config ~/.config/compton.conf -b
 exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id $term --title scratchterm
-exec_always --no-startup-id $term --title math -e ipython
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id killall -rq redshift; redshift -v -l 47.6697163:-122.1999892 &> ~/.redshift.log
