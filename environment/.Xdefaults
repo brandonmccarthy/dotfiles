@@ -1,0 +1,53 @@
+*foreground: #cccccc
+*foreground_bold: #a8a19f
+*cursor: #cccccc
+*background:       #2d2d2d
+!!*background: rgba(0, 0, 0, .7)
+
+!! black
+*color0: #2d2d2d
+*color8: #666666
+!! red
+*color1: #f2777a
+*color9: #ff3334
+!! green
+*color2: #99cc99
+*color10: #9ec400
+!! yellow
+*color3: #f99157
+*color11: #ffcc66
+!! blue
+*color4: #6699cc
+*color12: #6699cc
+!! magenta
+*color5: #cc99cc
+*color13: #ffcc66
+!! cyan
+*color6: #66cccc
+*color14: #66cccc
+!! white
+*color7: #ffffff
+*color15: #393939
+
+URxvt.intensityStyles:	false
+URxvt.background:       [70]#000000
+URxvt.depth:		32
+URxvt.font: 		xft:Source Code Pro for Powerline:size=11
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,keyboard-select
+URxvt.colorUL:		#4682B4
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: linkhandler
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.resize-font.smaller:	C-Down
+URxvt.resize-font.bigger:	C-Up
+!! Matcher
+URxvt.url-launcher:	linkhandler
+URxvt.matcher.button: 1

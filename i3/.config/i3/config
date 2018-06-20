@@ -12,7 +12,7 @@ font pango:monospace 9
 #####################################################################
 # Variables
 #####################################################################
-set $term termite
+set $term urxvt
 set $web firefox-developer-edition
 set $lock "killall -SIGUSR1 dunst; betterlockscreen -l dimblur || i3lock -c 000000; killall -SIGUSR2 dunst"
 
@@ -328,4 +328,4 @@ exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id killall compton; compton --config ~/.config/compton.conf -b
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id killall -rq redshift; redshift -v -l 47.6697163:-122.1999892 &> ~/.redshift.log
+exec_always --no-startup-id killall -rq redshift; redshift -v &> ~/.redshift.log
