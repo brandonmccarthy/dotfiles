@@ -19,3 +19,10 @@ export GOPATH=$(go env GOPATH) # gopath
 export PATH=$PATH:$(go env GOPATH)/bin # gobin
 export PATH=$PATH:/var/lib/snapd/snap/bin # snapd
 export TERM="xterm-256color"
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
