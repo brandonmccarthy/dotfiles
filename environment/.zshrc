@@ -22,7 +22,6 @@ antigen apply
 # Bullettrain theme stuff
 BULLETTRAIN_PROMPT_ORDER=(
     time
-    status
     custom
     dir
     screen
@@ -36,6 +35,7 @@ BULLETTRAIN_PROMPT_ORDER=(
     elixir
     git
     hg
+    status
     cmd_exec_time
 )
 # BULLETTRAIN_TIME_12HR=true
