@@ -52,3 +52,6 @@ export PATH=$PATH:$(go env GOPATH)/bin # gobin
 export PATH=$PATH:/var/lib/snapd/snap/bin # snapd
 export TERM="xterm-256color"
 
+if [[ -a  /usr/share/fzf/shell/key-bindings.zsh ]]; then
+	source /usr/share/fzf/shell/key-bindings.zsh
+fi

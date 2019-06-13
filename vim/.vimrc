@@ -1,11 +1,12 @@
 " General
 set number
-set relativenumber
 set nowrap
 let mapleader=','
 filetype plugin on
 syntax enable
 
+" Custom maps
+map ; :Files<CR>
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -15,7 +16,9 @@ Plug 'crusoexia/vim-monokai'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'benmills/vimux'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go'
 Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdcommenter'
@@ -26,6 +29,16 @@ call plug#end()
 " Theming stuff
 syntax on
 colorscheme monokai
+
+" lightline bar
+set laststatus=2
+set noshowmode
+let g:lightline = {
+ \	'active': {
+ \		'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+ \		'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
+ \	}
+ \ }
 
 " Highlighting
 let g:go_highlight_functions = 1
