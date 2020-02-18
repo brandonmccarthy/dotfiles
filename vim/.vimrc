@@ -1,32 +1,40 @@
-" General
+"""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""
 set number
 set nowrap
-let mapleader=','
+let mapleader='\'
 filetype plugin on
 syntax enable
 
-" Custom maps
-map ; :Files<CR>
+" Switch between buffers
+nnoremap <C-N> :tabnext<CR>
+nnoremap <C-P> :tabprev<CR>
 
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
+"""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'crusoexia/vim-monokai'
-Plug 'tpope/vim-fugitive'
-Plug 'godlygeek/tabular'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutushi/tagbar'
 Plug 'benmills/vimux'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf.vim'
+Plug 'crusoexia/vim-monokai'
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
 
-" Theming stuff
+"""""""""""""""""""""""""""""""""""""""""
+" Theme
+"""""""""""""""""""""""""""""""""""""""""
 syntax on
 colorscheme monokai
 
@@ -47,14 +55,60 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" Vimux stuff
+"""""""""""""""""""""""""""""""""""""""""
+" Vimux
+"""""""""""""""""""""""""""""""""""""""""
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
 
+"""""""""""""""""""""""""""""""""""""""""
+" Nerd
+"""""""""""""""""""""""""""""""""""""""""
+map <F2> :NERDTreeToggle<CR>
+map <F8> :TagBarToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""
 " Tabularize
+"""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
+"""""""""""""""""""""""""""""""""""""""""
+" fzf
+"""""""""""""""""""""""""""""""""""""""""
+map <Leader>b :Buffers<CR>
+map <Leader>t :BTags<CR>
+map <Leader>l :BLines<CR>
+
+let g:fzf_action = {
+	\ 'ctrl+t': 'tab split',
+	\ 'ctrl+x': 'split',
+	\ 'ctrl+v': 'vsplit',
+}
+
+let g:fzf_layout { 'down': '-40%' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors = { 
+  \ 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] 
+}
+
+map ; :Files<CR>
+
+
