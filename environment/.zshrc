@@ -95,8 +95,12 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # FZF history matching
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
+	source /usr/share/fzf/key-bindings.zsh
+fi
+if [[ -f /usr/share/fzf/completion.zsh ]]; then
+	source /usr/share/fzf/completion.zsh
+fi
 
 # Paths
 export PATH=$PATH:/usr/local/go/bin
@@ -104,7 +108,3 @@ export GOPATH=$(go env GOPATH)
 export PATH=$PATH:$(go env GOPATH)/bin # gobin
 export PATH=$PATH:/var/lib/snapd/snap/bin # snapd
 export TERM="xterm-256color"
-
-if [[ -a  /usr/share/fzf/shell/key-bindings.zsh ]]; then
-	source /usr/share/fzf/shell/key-bindings.zsh
-fi

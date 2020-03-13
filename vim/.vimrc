@@ -88,9 +88,9 @@ let g:fzf_action = {
 	\ 'ctrl+t': 'tab split',
 	\ 'ctrl+x': 'split',
 	\ 'ctrl+v': 'vsplit',
-}
+\ }
 
-let g:fzf_layout { 'down': '-40%' }
+let g:fzf_layout = { 'down': '-40%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors = { 
@@ -107,7 +107,7 @@ let g:fzf_colors = {
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] 
-}
+\ }
 
 map ; :Files<CR>
 
